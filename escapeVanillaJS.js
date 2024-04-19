@@ -41,14 +41,9 @@ function findMostRecentBook(books) {
 
 function findIntersection(setA, setB) {
      // 🪲 Bug: Incorrect logic (fixed)
-    const intersection = new Set();
-    for (const elem of setA) {
-        if (setB.has(elem)) {
-            intersection.add(elem);
-        }
-    }
-    return intersection;}
-
+ const intersection = new Set([...setA].filter(elem => setB.has(elem)));
+return intersection;
+}
 
 async function navigateLabyrinth(directions) {
     for (let direction of directions) {
